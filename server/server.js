@@ -15,13 +15,11 @@ const io = require('socket.io')(server)
 app.use(cors());
 app.use(bodyParser.json());
 
-// massive(process.env.CONNECTION_STRING).then( db => {
-//         app.set('db', db);
-// }).catch('err', err => console.log(err))
+massive(process.env.CONNECTION_STRING).then( db => {
+        app.set('db', db);
+}).catch('err', err => console.log(err))
 
-app.get('/', function(req, res){
-    res.send('<h1>Hello world!</h1>')
-})
+app.post('/api/addQuestion', controller.addQuestion);
 
 const PORT = 3212;
 server.listen(PORT, () => console.log("I'm listenin' brotha' on port ", PORT));
