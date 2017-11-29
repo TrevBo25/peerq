@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import './Mentor.css';
 import {connect} from 'react-redux';
-import {updateView} from '../../ducks/reducer';
+import {updateView, getQuestions} from '../../ducks/reducer';
+import io from 'socket.io-client';
 
 class Mentor extends Component{
     constructor(props){
@@ -13,7 +14,7 @@ class Mentor extends Component{
     }
 
     componentDidMount(){
-
+        this.props.getQuestions()
     }
 
     changeView(view){
@@ -25,6 +26,11 @@ class Mentor extends Component{
                 <div>
                     <button onClick={() => this.changeView('middle')}>Back</button>
                     Mentor
+                    <div>
+                        {this.props.questions.map((e, i)=>{
+                            return (<div key={i}>{e.name}<br />{e.question}</div>)
+                        })}
+                    </div>
                 </div>
         )
     }
@@ -32,7 +38,8 @@ class Mentor extends Component{
 
 function mapStateToProps(state){
     return {
+        questions: state.questions
     }
 }
 
-export default connect(mapStateToProps, {updateView})(Mentor)
+export default connect(mapStateToProps, {updateView, getQuestions})(Mentor)
