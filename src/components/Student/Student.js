@@ -1,66 +1,36 @@
 import React, {Component} from 'react';
 import './Student.css';
 import {connect} from 'react-redux';
-import {updateView} from '../../ducks/reducer';
-import axios from 'axios';
+import StudentForm from '../StudentForm/StudentForm';
+import StudentWaiting from '../StudentWaiting/StudentWaiting';
 
 class Student extends Component{
     constructor(props){
         super(props)
         this.state = {
-            name: "",
-            question: ""
+           view: "waiting"
         }
-        this.handleName = this.handleName.bind(this);
-        this.handleQuestion = this.handleQuestion.bind(this);
-        
+
+        this.changeView = this.changeView.bind(this);
+    
     }
 
     componentDidMount(){
 
     }
 
-    changeView(view){
-        this.props.updateView(view);
-    }
-
-    handleName(e){
+    changeView(newView){
         this.setState({
-            name: e
-        })
+            view: newView
+        });
     }
 
-    handleQuestion(e){
-        this.setState({
-            question: e
-        })
-    }
-
-    submit(){
-        console.log('hit')
-        axios.post('/api/addQuestion',{ name: this.state.name, question: this.state.question})
-        .then(response => {
-            console.log('successfully added question')
-        })
-    }
+    
 
     render(){
         return(
                 <div>
-                    <button onClick={() => this.changeView('middle')}>Back</button>
-                    Student
-                    <br />
-                    {this.state.name}
-                    <br />
-                    {this.state.question}
-                    <br />
-                    <div>
-                        <div>
-                            <input placeholder="enter your name" onChange={(e) => this.handleName(e.target.value)}/>
-                            <input placeholder="enter your question" onChange={(e) => this.handleQuestion(e.target.value)}/>
-                            <button onClick={() => this.submit()} >Submit</button>
-                        </div>
-                    </div>
+                    {this.state.view === "form" ? <StudentForm changeView={this.changeView} /> : <StudentWaiting changeView={this.changeView} />}
                 </div>
         )
     }
@@ -71,4 +41,4 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps, {updateView})(Student)
+export default connect(mapStateToProps)(Student)

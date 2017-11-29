@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 import './reset.css';
-import router from './router';
+import Starter from './components/Starter/Starter'
 
 class App extends Component {
   render() {
     return (
       <div className="papa">
-        {router}
+        <Starter />
       </div>
     );
   }
