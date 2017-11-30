@@ -8,7 +8,8 @@ class Student extends Component{
     constructor(props){
         super(props)
         this.state = {
-           view: "waiting"
+           view: "waiting",
+           name: ""
         }
 
         this.changeView = this.changeView.bind(this);

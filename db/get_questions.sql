@@ -1,2 +1,3 @@
 SELECT *
-FROM questions;
+FROM questions
+ORDER BY id ASC;

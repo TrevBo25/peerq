@@ -21,21 +21,17 @@ massive(process.env.CONNECTION_STRING).then( db => {
 
 app.post('/api/addQuestion', controller.addQuestion);
 app.get('/api/getquestions', controller.getQuestions);
+app.post('/api/help', controller.help);
+app.post('/api/remove', controller.remove);
 
 const PORT = 3212;
 server.listen(PORT, () => console.log("I'm listenin' brotha' on port ", PORT));
 
 io.on('connection', function(socket){
-    console.log('a user connected');
-    socket.on('disconnect', function(){
-      console.log('user disconnected');
-    });
+    console.log('a user connected')
 
-    socket.on('chat message', function(msg){
-      console.log('message: ' + msg);
-    });
-
-    socket.on('chat message', function(msg){
-      io.emit('chat message', msg);
-    });
-});
+    socket.on('question', function(test){
+        console.log('successful test');
+        io.emit('render', test)
+    })
+})

@@ -3,6 +3,8 @@ import './Mentor.css';
 import {connect} from 'react-redux';
 import {updateView, getQuestions} from '../../ducks/reducer';
 import io from 'socket.io-client';
+import socket from '../../socket';
+import axios from 'axios';
 
 class Mentor extends Component{
     constructor(props){
@@ -15,10 +17,27 @@ class Mentor extends Component{
 
     componentDidMount(){
         this.props.getQuestions()
+        socket.on('render', this.props.getQuestions)
     }
 
     changeView(view){
         this.props.updateView(view);
+    }
+
+    helpQ(id){
+        axios.post('/api/help', {id: id})
+        .then(response => {
+            socket.emit('question');
+        }).catch( err => console.log(err))
+        console.log('hi');
+    }
+
+    removeQ(id){
+        axios.post('/api/remove', {id:id})
+        .then( response => {
+            socket.emit('question');
+        }).catch( err => console.log(err))
+        console.log('hihi');
     }
 
     render(){
@@ -28,7 +47,13 @@ class Mentor extends Component{
                     Mentor
                     <div>
                         {this.props.questions.map((e, i)=>{
-                            return (<div key={i}>{e.name}<br />{e.question}</div>)
+                            return (<div key={i}>
+                                <br/><br/><br/><br/>{e.name}<br/><br/>{e.question}<br/><br/>{e.status}<br/><br/>
+                                <div>
+                                    <button onClick={() => this.helpQ(e.id)}>Help</button>
+                                    <button onClick={() => this.removeQ(e.id)}>Remove</button>
+                                </div>
+                            </div>)
                         })}
                     </div>
                 </div>

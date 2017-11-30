@@ -16,10 +16,8 @@ export function updateView(view){
 }
 
 export function getQuestions(){
-    console.log('getquestions');
     const request = axios.get('/api/getquestions')
                     .then(response => {
-                        console.log(response.data)
                         return response.data
                     }).catch(err => console.log('err getquestions', err))
     return {
