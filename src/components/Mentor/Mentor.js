@@ -24,20 +24,20 @@ class Mentor extends Component{
         this.props.updateView(view);
     }
 
-    helpQ(id){
+    helpQ(id, name){
         axios.post('/api/help', {id: id})
         .then(response => {
             socket.emit('question');
+            socket.emit('helper', name);
         }).catch( err => console.log(err))
-        console.log('hi');
     }
 
-    removeQ(id){
+    removeQ(id, name){
         axios.post('/api/remove', {id:id})
         .then( response => {
             socket.emit('question');
+            socket.emit('donezo', name);
         }).catch( err => console.log(err))
-        console.log('hihi');
     }
 
     render(){
@@ -50,8 +50,8 @@ class Mentor extends Component{
                             return (<div key={i}>
                                 <br/><br/><br/><br/>{e.name}<br/><br/>{e.question}<br/><br/>{e.status}<br/><br/>
                                 <div>
-                                    <button onClick={() => this.helpQ(e.id)}>Help</button>
-                                    <button onClick={() => this.removeQ(e.id)}>Remove</button>
+                                    <button onClick={() => this.helpQ(e.id, e.name)}>Help</button>
+                                    <button onClick={() => this.removeQ(e.id, e.name)}>Remove</button>
                                 </div>
                             </div>)
                         })}

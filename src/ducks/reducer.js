@@ -2,11 +2,13 @@ const axios = require('axios');
 
 const initialState = {
     view: "middle",
-    questions: []
+    questions: [],
+    studentName: ''
 }
 
 const UPDATE_VIEW = "UPDATE_VIEW";
 const GET_QUESTIONS = "GET_QUESTIONS";
+const UPDATE_NAME = "UPDATE_NAME"
 
 export function updateView(view){
     return {
@@ -27,12 +29,21 @@ export function getQuestions(){
 
 }
 
+export function updateName(name){
+    return {
+        type: UPDATE_NAME,
+        payload: name
+    }
+}
+
 export default function reducer(state = initialState, action){
     switch (action.type) {
         case UPDATE_VIEW:
             return Object.assign({}, state, {view: action.payload})
         case GET_QUESTIONS + "_FULFILLED":
             return Object.assign({}, state, {questions: action.payload})
+        case UPDATE_NAME:
+            return Object.assign({}, state, {studentName: action.payload})
         default:
             return state;
     }

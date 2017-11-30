@@ -32,6 +32,20 @@ io.on('connection', function(socket){
 
     socket.on('question', function(test){
         console.log('successful test');
-        io.emit('render', test)
+        io.emit('render')
+    })
+
+    socket.on('helper', function(name){
+        console.log('successful help');
+        io.emit('helped', name)
+    })
+
+    socket.on('donezo', function(name){
+        console.log('donneee');
+        io.emit('doneyo', name)
     })
 })
+
+io.on('disconnect', function() {
+    console.log('a user disconnected'); 
+});

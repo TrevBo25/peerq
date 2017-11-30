@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './StudentForm.css';
 import {connect} from 'react-redux';
-import {updateView} from '../../ducks/reducer';
+import {updateView, updateName} from '../../ducks/reducer';
 import axios from 'axios';
 import io from 'socket.io-client';
 import socket from '../../socket'
@@ -44,8 +44,9 @@ class StudentForm extends Component{
         .then(response => {
             console.log('successfully added question');
             this.props.changeView("waiting")
-            socket.emit('question', 3);
-            })
+            socket.emit('question');
+            this.props.updateName(this.state.name)
+        })
     }
 
     render(){
@@ -75,4 +76,4 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps, {updateView})(StudentForm)
+export default connect(mapStateToProps, {updateView, updateName})(StudentForm)
