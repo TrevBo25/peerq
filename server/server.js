@@ -44,8 +44,11 @@ io.on('connection', function(socket){
         console.log('donneee');
         io.emit('doneyo', name)
     })
+
+    socket.on('disconnect', function(socket) {
+        console.log('a user disconnected'); 
+    });
+    
 })
 
-io.on('disconnect', function() {
-    console.log('a user disconnected'); 
-});
+

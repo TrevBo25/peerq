@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import './reset.css';
 import Starter from './components/Starter/Starter'
 
