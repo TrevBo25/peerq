@@ -1,6 +1,6 @@
 //-- Main Color Scheme --//
 $black: #292E1E;
-$darkpurple: #7F0799;
+$darkpurple: rgb(87, 4, 106);
 $mediumpurple: #9649CB;
 $lightpurple: #AFBBF2;
 $aquablue: #AFBBF2;
@@ -8,5 +8,7 @@ $beige: #F2F3D9;
 //--Font Families--//
 @import url('https://fonts.googleapis.com/css?family=Vollkorn+SC');
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
 $primaryfont: 'Vollkorn SC', serif;
 $secondaryfont: 'Roboto', sans-serif;
+$gamerfont: 'Press Start 2P', cursive;

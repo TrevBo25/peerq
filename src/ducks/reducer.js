@@ -3,7 +3,7 @@ const axios = require('axios');
 const initialState = {
     view: "middle",
     questions: [],
-    studentName: ''
+    name: ''
 }
 
 const UPDATE_VIEW = "UPDATE_VIEW";
@@ -43,7 +43,7 @@ export default function reducer(state = initialState, action){
         case GET_QUESTIONS + "_FULFILLED":
             return Object.assign({}, state, {questions: action.payload})
         case UPDATE_NAME:
-            return Object.assign({}, state, {studentName: action.payload})
+            return Object.assign({}, state, {name: action.payload})
         default:
             return state;
     }

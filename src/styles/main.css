@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Vollkorn+SC");
 @import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url("https://fonts.googleapis.com/css?family=Press+Start+2P");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -92,13 +93,76 @@ table {
 .papam {
   height: 100%;
   width: 100%;
-  position: relative; }
+  position: relative;
+  background-color: #292E1E;
+  overflow: auto; }
   .papam .back {
     position: absolute;
     color: white;
-    background-color: black;
+    background-color: #292E1E;
     border: 1px white solid;
     font-family: "Roboto", sans-serif;
     font-size: 20px;
-    top: 5;
-    left: 5; }
+    top: 10px;
+    left: 10px;
+    border-radius: 2px; }
+  .papam .questionsholder {
+    margin-top: 45px;
+    margin-left: 10px;
+    background-color: #fcfcfc;
+    width: 60%;
+    min-height: 90%;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 2px; }
+    .papam .questionsholder .qtitle {
+      font-family: "Vollkorn SC", serif;
+      font-size: 45px;
+      margin-bottom: 20px;
+      margin-top: 10px; }
+    .papam .questionsholder .questionitself {
+      width: 80%;
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 5px 5px 20px #b5b5b5;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      background-color: white;
+      font-family: "Roboto", sans-serif; }
+      .papam .questionsholder .questionitself .nameholder {
+        margin: 15px 0px 5px 10px;
+        color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+        align-self: flex-start; }
+      .papam .questionsholder .questionitself .qholder {
+        margin-bottom: 10px;
+        width: 50%;
+        word-wrap: break-word;
+        text-align: center; }
+      .papam .questionsholder .questionitself .mnameholder {
+        font-size: 20px;
+        color: #57046a; }
+      .papam .questionsholder .questionitself .bqholder {
+        margin: 10px;
+        width: 40%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center; }
+        .papam .questionsholder .questionitself .bqholder .helpbutton {
+          background-color: #AFBBF2;
+          border: none;
+          font-size: 20px;
+          border-radius: 3px; }
+        .papam .questionsholder .questionitself .bqholder .removebutton {
+          background-color: red;
+          border: none;
+          font-size: 20px;
+          border-radius: 3px; }

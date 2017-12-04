@@ -2,14 +2,86 @@
     height: 100%;
     width: 100%;
     position: relative;
+    background-color: $black;
+    overflow: auto;
     .back{
         position: absolute;
         color: white;
-        background-color: black;
+        background-color: $black;
         border: 1px white solid;
         font-family: $secondaryfont;
         font-size: 20px;
-        top: 5;
-        left: 5;
+        top: 10px;
+        left: 10px;
+        border-radius: 2px;
+    }
+    .questionsholder{
+        margin-top: 45px;
+        margin-left: 10px;
+        background-color: rgb(252, 252, 252);
+        width: 60%;
+        min-height: 90%;
+        color: black;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        border-radius: 2px;
+        .qtitle{
+            font-family: $primaryfont;
+            font-size: 45px;
+            margin-bottom: 20px;
+            margin-top: 10px;
+        }
+        .questionitself{
+            width: 80%;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 5px 5px 20px #b5b5b5;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            background-color: rgb(255, 255, 255);
+            font-family: $secondaryfont;
+            .nameholder{
+                margin: 15px 0px 5px 10px;
+                color: black;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 25px;
+                align-self: flex-start;
+            }
+            .qholder{
+                margin-bottom: 10px;
+                width: 50%;
+                word-wrap: break-word;
+                text-align: center;
+            }
+            .mnameholder{
+                font-size: 20px;
+                color: $darkpurple;
+            }
+            .bqholder{
+                margin: 10px;
+                width: 40%;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                .helpbutton{
+                    background-color: $lightpurple;
+                    border: none;
+                    font-size: 20px;
+                    border-radius: 3px;
+                }
+                .removebutton{
+                    background-color: red;
+                    border:none;
+                    font-size: 20px;
+                    border-radius: 3px;
+                }
+            }
+        }
     }
 }
