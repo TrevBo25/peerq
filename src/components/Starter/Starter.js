@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import './Starter.css';
 import {connect} from 'react-redux';
 import Student from '../Student/Student';
 import Mentor from '../Mentor/Mentor';
@@ -33,9 +32,16 @@ class Starter extends Component{
     render(){
         return(
                 <div className="papa">
+                {this.props.view === "middle" ?
                     <div className="hero">
                         <h1 className="title">Welcome to the PeerQ</h1>
+                        <div className="buttonholder">
+                            <button className="leftbutton" onClick={() => this.changeView('student')} >Student</button>
+                            <button className="rightbutton" onClick={() => this.changeView('mentor')} >Mentor</button>
+                        </div>
                     </div>
+                : (this.props.view === "student" ? <Student /> : <Mentor />)
+                }
                 </div>
         )
     }

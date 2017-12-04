@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import './Student.css';
 import {connect} from 'react-redux';
 import StudentForm from '../StudentForm/StudentForm';
 import StudentWaiting from '../StudentWaiting/StudentWaiting';

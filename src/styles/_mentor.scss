@@ -1,0 +1,15 @@
+.papam{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    .back{
+        position: absolute;
+        color: white;
+        background-color: black;
+        border: 1px white solid;
+        font-family: $secondaryfont;
+        font-size: 20px;
+        top: 5;
+        left: 5;
+    }
+}

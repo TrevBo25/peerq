@@ -50,3 +50,55 @@ table {
   display: flex;
   justify-content: space-around;
   align-items: center; }
+  .papa .hero {
+    color: white;
+    font-family: "Vollkorn SC", serif;
+    font-size: 70px;
+    height: 250px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center; }
+    .papa .hero .buttonholder .leftbutton {
+      font-family: "Roboto", sans-serif;
+      border: 1px white solid;
+      height: 40px;
+      width: 100px;
+      font-size: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: black;
+      color: white;
+      margin: 5px; }
+    .papa .hero .buttonholder .leftbutton:hover {
+      cursor: pointer; }
+    .papa .hero .buttonholder .rightbutton {
+      font-family: "Roboto", sans-serif;
+      border: 1px white solid;
+      height: 40px;
+      width: 100px;
+      font-size: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: black;
+      color: white;
+      margin: 5px; }
+    .papa .hero .buttonholder .rightbutton:hover {
+      cursor: pointer; }
+
+.papam {
+  height: 100%;
+  width: 100%;
+  position: relative; }
+  .papam .back {
+    position: absolute;
+    color: white;
+    background-color: black;
+    border: 1px white solid;
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    top: 5;
+    left: 5; }

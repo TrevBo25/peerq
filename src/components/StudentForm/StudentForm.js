@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import './StudentForm.css';
 import {connect} from 'react-redux';
 import {updateView, updateName} from '../../ducks/reducer';
 import axios from 'axios';

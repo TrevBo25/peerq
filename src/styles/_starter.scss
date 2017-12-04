@@ -5,4 +5,49 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    .hero{
+        color: white;
+        font-family: $primaryfont;
+        font-size: 70px;
+        height: 250px;
+        font-weight: bold;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        .buttonholder{
+            .leftbutton{
+                font-family: $secondaryfont;
+                border: 1px white solid;
+                height: 40px;
+                width: 100px;
+                font-size: 25px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: black;
+                color: white;
+                margin: 5px;
+            }
+            .leftbutton:hover{
+                cursor: pointer;
+            }
+            .rightbutton{
+                font-family: $secondaryfont;
+                border: 1px white solid;
+                height: 40px;
+                width: 100px;
+                font-size: 25px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: black;
+                color: white;
+                margin: 5px;
+            }
+            .rightbutton:hover{
+                cursor: pointer;
+            }
+        }
+    }
 }

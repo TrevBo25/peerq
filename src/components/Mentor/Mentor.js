@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import './Mentor.css';
 import {connect} from 'react-redux';
 import {updateView, getQuestions} from '../../ducks/reducer';
 import io from 'socket.io-client';
@@ -42,16 +41,17 @@ class Mentor extends Component{
 
     render(){
         return(
-                <div>
-                    <button onClick={() => this.changeView('middle')}>Back</button>
+                <div className="papam">
+                    <button className="back" onClick={() => this.changeView('middle')}>Back</button>
                     Mentor
-                    <div>
+                    <div className="questionsholder">
                         {this.props.questions.map((e, i)=>{
-                            return (<div key={i}>
-                                <br/><br/><br/><br/>{e.name}<br/><br/>{e.question}<br/><br/>{e.status}<br/><br/>
-                                <div>
-                                    <button onClick={() => this.helpQ(e.id, e.name)}>Help</button>
-                                    <button onClick={() => this.removeQ(e.id, e.name)}>Remove</button>
+                            return (<div key={i} className="questionitself">
+                                        <div className="nameholder"><h1 className="name">{e.name}</h1></div>
+                                        <div className="qholder"><h1 className="q">{e.question}</h1></div>{e.status}
+                                <div className="bqholder">
+                                    {e.status === "pending" ? <button className="helpbutton" onClick={() => this.helpQ(e.id, e.name)}>Help</button> : null}
+                                    <button className="removebutton" onClick={() => this.removeQ(e.id, e.name)}>Remove</button>
                                 </div>
                             </div>)
                         })}
