@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {updateView, getQuestions} from '../../ducks/reducer';
-import io from 'socket.io-client';
 import socket from '../../socket';
 import axios from 'axios';
 
@@ -27,6 +26,7 @@ class Mentor extends Component{
         .then(response => {
             socket.emit('question');
             socket.emit('helper', name);
+            console.log(name);
         }).catch( err => console.log(err))
     }
 
@@ -35,6 +35,7 @@ class Mentor extends Component{
         .then( response => {
             socket.emit('question');
             socket.emit('donezo', name);
+            console.log(name);
         }).catch( err => console.log(err))
     }
 

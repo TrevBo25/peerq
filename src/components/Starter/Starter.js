@@ -21,12 +21,6 @@ class Starter extends Component{
         this.props.updateView(view);
     }
 
-//     <div>
-    //     {this.props.view === "middle" ? <div>
-    //         <button onClick={() => this.changeView('student')}>Student</button>
-    //         <button onClick={() => this.changeView('mentor')}>Mentor</button>
-    //     </div> : (this.props.view === "student" ? <Student /> : <Mentor />)}
-//     </div>
 
 
     render(){

@@ -37,11 +37,13 @@ io.on('connection', function(socket){
 
     socket.on('helper', function(name){
         console.log('successful help');
+        console.log(name);
         io.emit('helped', name)
     })
 
     socket.on('donezo', function(name){
         console.log('donneee');
+        console.log(name);
         io.emit('doneyo', name)
     })
 
