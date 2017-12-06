@@ -1,0 +1,4 @@
+SELECT *
+FROM highscore
+ORDER BY score DESC
+LIMIT 10;

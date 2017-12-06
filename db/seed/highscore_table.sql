@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS highscore (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR,
+    score INTEGER
+)

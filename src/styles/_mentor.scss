@@ -4,6 +4,8 @@
     position: relative;
     background-color: $black;
     overflow: auto;
+    display: flex;
+    justify-content: space-between;
     .back{
         position: absolute;
         color: white;
@@ -20,13 +22,14 @@
         margin-left: 10px;
         background-color: rgb(252, 252, 252);
         width: 60%;
-        min-height: 90%;
+        min-height: 100%;
         color: black;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
         border-radius: 2px;
+        overflow: auto;
         .qtitle{
             font-family: $primaryfont;
             font-size: 45px;
@@ -56,6 +59,7 @@
             .qholder{
                 margin-bottom: 10px;
                 width: 50%;
+                color: black;
                 word-wrap: break-word;
                 text-align: center;
             }
@@ -80,6 +84,90 @@
                     border:none;
                     font-size: 20px;
                     border-radius: 3px;
+                }
+            }
+        }
+    }
+    .rightsideholder{
+        width: 37%;
+        height: 400px;
+        margin-top: 45px;
+        margin-right: 10px;
+        background-color: black;
+        border-radius: 2px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        font-family: $gamerfont;
+        .hstopholder{
+            color: white;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 80%;
+            .hsnameholder{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                .hstitle{
+                    color: red;
+                    margin-bottom: 3px;
+                    margin-top: 5px;
+                }
+            }
+        }
+        .hslistholder{
+            width: 80%;
+            height: 80%;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            .highscore{
+                color: red;
+                font-size: 25px;
+                margin-bottom: 10px;
+            }
+            .highscorelist{
+                width: 95%;
+                height: 90%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                .hstitles{
+                    color: white;
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 10px;
+                }
+                .actualhighscore{
+                    color: aqua;
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 3%;
+                    .hsword{
+                        flex: 1;
+                    }
+                    .hswords{
+                        flex: 1;
+                        text-align: right;
+                    }
+                    .hsword1{
+                        flex: 1;
+                        color: yellow;
+                    }
+                    .hsword1s{
+                        flex: 1;
+                        color: yellow;
+                        text-align: right;
+                    }
                 }
             }
         }

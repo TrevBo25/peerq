@@ -1,6 +1,5 @@
-import React, {Component} from 'react';		
-import './StudentWaiting.css';		
-import {connect} from 'reactredux';		
+import React, {Component} from 'react';				
+import {connect} from 'react-redux';		
 import {updateView} from '../../ducks/reducer';		
 import socket from '../../socket';		
 		

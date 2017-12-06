@@ -23,6 +23,8 @@ app.post('/api/addQuestion', controller.addQuestion);
 app.get('/api/getquestions', controller.getQuestions);
 app.post('/api/help', controller.help);
 app.post('/api/remove', controller.remove);
+app.get('/api/highscores', controller.getHighscores);
+app.post('/api/updatescore',controller.updateScore);
 
 const PORT = 3212;
 server.listen(PORT, () => console.log("I'm listenin' brotha' on port ", PORT));

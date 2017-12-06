@@ -15,7 +15,23 @@
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
+        text-align: center;
         .buttonholder{
+            display: flex;
+            align-items: center;
+            .nameinput{
+                height: 40px;
+                font-size: 25px;
+                border: none;
+                transition: all .5s linear 0s;
+            }
+            .nameinputa{
+                height: 40px;
+                font-size: 25px;
+                background-color: red;
+                border: none;
+                transition: all .5s linear 0s;
+            }
             .leftbutton{
                 font-family: $secondaryfont;
                 border: 1px white solid;
