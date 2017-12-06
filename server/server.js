@@ -25,6 +25,7 @@ app.post('/api/help', controller.help);
 app.post('/api/remove', controller.remove);
 app.get('/api/highscores', controller.getHighscores);
 app.post('/api/updatescore',controller.updateScore);
+app.get('/api/getuserscore/:name', controller.getUserScore);
 
 const PORT = 3212;
 server.listen(PORT, () => console.log("I'm listenin' brotha' on port ", PORT));

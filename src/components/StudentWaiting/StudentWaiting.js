@@ -30,7 +30,7 @@ class StudentWaiting extends Component{
     }		
 		
     changeView2(view, name){		
-        if(this.props.tname === name){		
+        if(this.props.name === name){		
             this.props.changeView(view);		
         }		
     }		
@@ -50,7 +50,7 @@ class StudentWaiting extends Component{
                 <div>		
                     <button onClick={() => this.changeView('middle')}>Back</button>		
                     <p>StudentWaiting</p>		
-                    {this.props.tname === this.state.sName ? <p>Mentor on the way</p> : <p>Please wait</p>}		
+                    {this.props.name === this.state.sName ? <p>Mentor on the way</p> : <p>Please wait</p>}		
                     <button onClick={() => {this.askAnother("form")}}>Ask another question</button>		
                 </div>		
         )		
@@ -59,7 +59,7 @@ class StudentWaiting extends Component{
 		
 function mapStateToProps(state){		
     return {		
-        tname: state.tname		
+        name: state.name		
     }		
 }		
 		

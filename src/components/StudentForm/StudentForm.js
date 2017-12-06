@@ -35,7 +35,7 @@ class StudentForm extends Component{
 
     submit(){
         console.log('hit')
-        axios.post('/api/addQuestion',{ name: this.props.tname, question: this.state.question})
+        axios.post('/api/addQuestion',{ name: this.props.name, question: this.state.question})
         .then(response => {
             console.log('successfully added question');
             this.props.changeView("waiting")
@@ -56,7 +56,7 @@ class StudentForm extends Component{
                     <br />
                     <div>
                         <div>
-                            <input placeholder="enter your name" onChange={(e) => this.handleName(e.target.value)} value={this.props.tname}/>
+                            <input placeholder="enter your name" onChange={(e) => this.handleName(e.target.value)} value={this.props.name}/>
                             <input placeholder="enter your question" onChange={(e) => this.handleQuestion(e.target.value)}/>
                             <button onClick={() => this.submit()} >Submit</button>
                         </div>
@@ -68,7 +68,7 @@ class StudentForm extends Component{
 
 function mapStateToProps(state){
     return {
-        tname: state.tname
+        name: state.name
     }
 }
 

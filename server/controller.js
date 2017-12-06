@@ -1,6 +1,5 @@
 module.exports = {
     addQuestion(req, res){
-        console.log('hit');
         const db = req.app.get('db');
         const { name, question} = req.body;
         db.add_question([name, question])
@@ -9,7 +8,6 @@ module.exports = {
         }).catch( err => console.log('addquestion', err));
     },
     getQuestions(req, res){
-        console.log('hot');
         const db = req.app.get('db');
         db.get_questions()
         .then(response => {
@@ -17,7 +15,6 @@ module.exports = {
         }).catch( err => console.log('err getquestions', err))
     },
     help(req,res){
-        console.log('het');
         const db = req.app.get('db');
         const {id, mname} = req.body;
         db.help_question([id, mname])
@@ -26,7 +23,6 @@ module.exports = {
         }).catch( err => console.log('help', err))
     },
     remove(req, res){
-        console.log('hut');
         const db = req.app.get('db');
         const {id} = req.body;
         db.delete_question([id])
@@ -44,24 +40,37 @@ module.exports = {
     updateScore(req, res){
         const db = req.app.get('db');
         const {name} = req.body;
-        console.log(name);
+        console.log('thename', name);
         db.check_score([name])
         .then(response => {
+            console.log('firstresponse', response);
             if(response.length > 0){
-                var newScore = response.score + 1;
+                var newScore = response[0].score + 1;
+                console.log('firstresponsenewscore', newScore);
                 db.update_score([name, newScore])
                 .then(response => {
+                    console.log('updateresponse', response);
                     res.status(200).send('successfully updated the score')
                 }).catch(err => console.log(err, 'updatescore'))
             } else {
                 db.create_score([name, 1])
                 .then( response => {
+                    console.log('createresponse', response);
                     res.status(200).send('successfully created user in hs')
                 }).catch(err => console.log(err, 'createscore'))
             }
         })
     },
     getUserScore(req, res){
-
+        const db = req.app.get('db');
+        const {name} = req.params;
+        db.check_score([name])
+        .then(response => {
+            if(response.length > 0){
+                res.status(200).json(response[0].score);
+            } else {
+                res.status(200).send("0")
+            }
+        })
     }
 }

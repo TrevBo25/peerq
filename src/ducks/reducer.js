@@ -3,7 +3,7 @@ const axios = require('axios');
 const initialState = {
     view: "middle",
     questions: [],
-    tname: '',
+    name: '',
     score: 0,
     highscores: []
 }
@@ -11,8 +11,8 @@ const initialState = {
 const UPDATE_VIEW = "UPDATE_VIEW";
 const GET_QUESTIONS = "GET_QUESTIONS";
 const UPDATE_NAME = "UPDATE_NAME";
-const UPDATE_SCORE = "UPDATE_SCORE";
 const GET_SCORES = "GET_SCORES";
+const GET_USER_SCORE = "GET_USER_SCORE"
 
 export function updateView(view){
     return {
@@ -51,10 +51,15 @@ export function updateName(name){
     }
 }
 
-export function updateScore(score){
+export function getUserScore(name){
+    const request = axios.get(`/api/getuserscore/${name}`)
+    .then(response => {
+        console.log(response);
+        return response.data
+    })
     return {
-        type: UPDATE_SCORE,
-        payload: score
+        type: GET_USER_SCORE,
+        payload: request
     }
 }
 
@@ -65,11 +70,11 @@ export default function reducer(state = initialState, action){
         case GET_QUESTIONS + "_FULFILLED":
             return Object.assign({}, state, {questions: action.payload})
         case UPDATE_NAME:
-            return Object.assign({}, state, {tname: action.payload})
-        case UPDATE_SCORE:
-            return Object.assign({}, state, {score: action.payload})
+            return Object.assign({}, state, {name: action.payload})
         case GET_SCORES + "_FULFILLED":
             return Object.assign({}, state, {highscores: action.payload})
+        case GET_USER_SCORE + "_FULFILLED":
+            return Object.assign({}, state, {score: action.payload})
         default:
             return state;
     }

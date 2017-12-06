@@ -19,7 +19,7 @@ class Starter extends Component{
     }
 
     changeView(view){
-        if(this.props.tname){
+        if(this.props.name){
             this.props.updateView(view);
         } else {
             this.setState({
@@ -47,7 +47,7 @@ class Starter extends Component{
                         <h1 className="title">Welcome to the PeerQ</h1>
                         <div className="buttonholder">
                             <button className="leftbutton" onClick={() => this.changeView('student')} >Student</button>
-                            {this.state.alert ? <input className="nameinputa" placeholder="Enter your name" onChange={(e) => this.handleInput(e.target.value)} value={this.props.tname}/> : <input className="nameinput" placeholder="Enter your name" onChange={(e) => this.handleInput(e.target.value)} value={this.props.tname}/>}
+                            {this.state.alert ? <input className="nameinputa" placeholder="Enter your name" onChange={(e) => this.handleInput(e.target.value)} value={this.props.name}/> : <input className="nameinput" placeholder="Enter your name" onChange={(e) => this.handleInput(e.target.value)} value={this.props.name}/>}
                             <button className="rightbutton" onClick={() => this.changeView('mentor')} >Mentor</button>
                         </div>
                     </div>
@@ -62,7 +62,7 @@ class Starter extends Component{
 function mapStateToProps(state){
     return {
         view: state.view,
-        tname: state.tname
+        name: state.name
     }
 }
 

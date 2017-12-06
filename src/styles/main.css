@@ -128,7 +128,7 @@ table {
     margin-left: 10px;
     background-color: #fcfcfc;
     width: 60%;
-    min-height: 100%;
+    min-height: 80%;
     color: black;
     display: flex;
     flex-direction: column;
@@ -245,13 +245,15 @@ table {
           align-items: center;
           margin-bottom: 3%; }
           .papam .rightsideholder .hslistholder .highscorelist .actualhighscore .hsword {
-            flex: 1; }
+            flex: 1;
+            overflow: hidden; }
           .papam .rightsideholder .hslistholder .highscorelist .actualhighscore .hswords {
             flex: 1;
             text-align: right; }
           .papam .rightsideholder .hslistholder .highscorelist .actualhighscore .hsword1 {
             flex: 1;
-            color: yellow; }
+            color: yellow;
+            overflow: hidden; }
           .papam .rightsideholder .hslistholder .highscorelist .actualhighscore .hsword1s {
             flex: 1;
             color: yellow;

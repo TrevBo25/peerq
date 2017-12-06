@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {updateView, getQuestions, updateScore, getScores} from '../../ducks/reducer';
+import {updateView, getQuestions, getScores, getUserScore} from '../../ducks/reducer';
 import socket from '../../socket';
 import axios from 'axios';
 
@@ -14,10 +14,11 @@ class Mentor extends Component{
     }
 
     componentDidMount(){
-        this.props.getQuestions()
-        this.props.getScores()
+        this.props.getQuestions();
+        this.props.getScores();
+        this.props.getUserScore(this.props.name);
 
-        socket.on('render', this.runOnRender)
+        socket.on('render', this.runOnRender);
     }
 
     changeView(view){
@@ -27,17 +28,18 @@ class Mentor extends Component{
     runOnRender(){
         this.props.getQuestions();
         this.props.getScores();
+        this.props.getUserScore(this.props.name);
     }
 
     helpQ(id, name){
-        axios.post('/api/help', {id: id, mname: this.props.tname})
+        axios.post('/api/help', {id: id, mname: this.props.name})
         .then(response => {
             socket.emit('question');
             socket.emit('helper', name);
             console.log(name);
         }).catch( err => console.log(err, 'help q'))
-        this.props.updateScore(this.props.score + 1)
-        this.updateScore(this.props.tname)
+        // this.props.updateScore(this.props.score + 1)
+        this.updateScore(this.props.name)
     }
 
     removeQ(id, name){
@@ -79,7 +81,7 @@ class Mentor extends Component{
                         <div className="hstopholder">
                             <div className="hsnameholder">
                                 <h1 className="hstitle">NAME</h1>
-                                <h1 className="hsword">{this.props.tname.toUpperCase()}</h1>
+                                <h1 className="hsword">{this.props.name.toUpperCase()}</h1>
                             </div>
                             <div className="hsnameholder">
                                 <h1 className="hstitle">SCORE</h1>
@@ -112,10 +114,10 @@ class Mentor extends Component{
 function mapStateToProps(state){
     return {
         questions: state.questions,
-        tname: state.tname,
+        name: state.name,
         score: state.score,
         highscores: state.highscores
     }
 }
 
-export default connect(mapStateToProps, {updateView, getQuestions, updateScore, getScores})(Mentor)
+export default connect(mapStateToProps, {updateView, getQuestions, getScores, getUserScore})(Mentor)
