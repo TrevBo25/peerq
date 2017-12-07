@@ -1,0 +1,57 @@
+.papasf{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .back{
+        position: absolute;
+        color: white;
+        background-color: black;
+        border: 1px white solid;
+        font-family: $secondaryfont;
+        font-size: 20px;
+        top: 10px;
+        left: 10px;
+        border-radius: 2px;
+    }
+    .inputsholder{
+        width: 100%;
+        height: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .inputtitle{
+            color: white;
+            font-family: $primaryfont;
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+        .theinput{
+            font-family: $secondaryfont;
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+        .texttitle{
+            color: white;
+            font-family: $primaryfont;
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+        .thetextarea{
+            font-family: $secondaryfont;
+            font-size: 20px;
+        }
+        .thebutton{
+            border: 2px white solid;
+            color: white;
+            font-size: 20px;
+            background-color: black;
+            font-family: $primaryfont;
+            margin-top: 20px; 
+        }
+    }
+}

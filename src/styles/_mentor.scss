@@ -2,14 +2,14 @@
     height: 100%;
     width: 100%;
     position: relative;
-    background-color: $black;
+    background-color: black;
     overflow: auto;
     display: flex;
     justify-content: space-between;
     .back{
         position: absolute;
         color: white;
-        background-color: $black;
+        background-color: black;
         border: 1px white solid;
         font-family: $secondaryfont;
         font-size: 20px;
@@ -65,7 +65,7 @@
             }
             .mnameholder{
                 font-size: 20px;
-                color: $darkpurple;
+                color: red;
             }
             .bqholder{
                 margin: 10px;
@@ -93,7 +93,7 @@
         height: 400px;
         margin-top: 45px;
         margin-right: 10px;
-        background-color: black;
+        background-color: rgb(16, 16, 16);
         border-radius: 2px;
         display: flex;
         flex-direction: column;

@@ -29,7 +29,7 @@ class Student extends Component{
 
     render(){
         return(
-                <div>
+                <div className="bigboy">
                     {this.state.view === "form" ? <StudentForm changeView={this.changeView} /> : <StudentWaiting changeView={this.changeView} />}
                 </div>
         )

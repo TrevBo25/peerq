@@ -1,0 +1,20 @@
+.papasw{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .back{
+        position: absolute;
+        color: white;
+        background-color: black;
+        border: 1px white solid;
+        font-family: $secondaryfont;
+        font-size: 20px;
+        top: 10px;
+        left: 10px;
+        border-radius: 2px;
+    }
+}

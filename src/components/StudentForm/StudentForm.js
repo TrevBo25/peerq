@@ -46,20 +46,14 @@ class StudentForm extends Component{
 
     render(){
         return(
-                <div>
-                    <button onClick={() => this.changeView('middle')}>Back</button>
-                    StudentForm
-                    <br />
-                    {this.state.name}
-                    <br />
-                    {this.state.question}
-                    <br />
-                    <div>
-                        <div>
-                            <input placeholder="enter your name" onChange={(e) => this.handleName(e.target.value)} value={this.props.name}/>
-                            <input placeholder="enter your question" onChange={(e) => this.handleQuestion(e.target.value)}/>
-                            <button onClick={() => this.submit()} >Submit</button>
-                        </div>
+                <div className='papasf'>
+                    <button className="back" onClick={() => this.changeView('middle')}>Back</button>
+                    <div className="inputsholder">
+                        <h1 className="inputtitle">Who are you?</h1>
+                        <input className="theinput" placeholder="enter your name" onChange={(e) => this.handleName(e.target.value)} value={this.props.name}/>
+                        <h1 className="texttitle">What's the issue?</h1>
+                        <textarea className="thetextarea" rows="4" cols="50" placeholder="enter your question" onChange={(e) => this.handleQuestion(e.target.value)}/>
+                        <button className="thebutton" onClick={() => this.submit()} >Submit</button>
                     </div>
                 </div>
         )
