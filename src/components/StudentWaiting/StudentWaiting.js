@@ -48,10 +48,9 @@ class StudentWaiting extends Component{
     render(){		
         return(		
                 <div className='papasw'>		
-                    <button className="back" onClick={() => this.changeView('middle')}>Back</button>		
-                    <p>StudentWaiting</p>		
-                    {this.props.name === this.state.sName ? <p>Mentor on the way</p> : <p>Please wait</p>}		
-                    <button onClick={() => {this.askAnother("form")}}>Ask another question</button>		
+                    <button className="back" onClick={() => this.changeView('middle')}>Back</button>			
+                    {this.props.name === this.state.sName ? <p className="swwords" >Mentor on the way</p> : <p className="swwords linear-wipe" >Please wait for the next available mentor</p>}		
+                    <button className="swbutton" onClick={() => {this.askAnother("form")}}>Got another question?</button>		
                 </div>		
         )		
     }		
