@@ -1,1 +1,1 @@
-# An app for students to help other students during their time at DevMountain without the trouble of seeing other cohort's students.
+## An app for students to help other students during their time at DevMountain without the trouble of seeing other cohort's students.
