@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import StudentForm from '../StudentForm/StudentForm';
 import StudentWaiting from '../StudentWaiting/StudentWaiting';
+import socket from '../../socket';
 
 class Student extends Component{
     constructor(props){
@@ -20,6 +21,7 @@ class Student extends Component{
     }
 
     changeView(newView){
+        socket.emit('leavestudent')
         this.setState({
             view: newView
         });

@@ -4,6 +4,7 @@ import Student from '../Student/Student';
 import Mentor from '../Mentor/Mentor';
 import {updateView, updateName} from '../../ducks/reducer';
 import { setTimeout } from 'core-js/library/web/timers';
+import socket from '../../socket';
 
 class Starter extends Component{
     constructor(props){
@@ -20,6 +21,11 @@ class Starter extends Component{
 
     changeView(view){
         if(this.props.name){
+            if(view === "mentor"){
+                socket.emit('mentor')
+            } else if (view === "student"){
+                socket.emit('student')
+            }
             this.props.updateView(view);
         } else {
             this.setState({
@@ -46,9 +52,9 @@ class Starter extends Component{
                     <div className="hero">
                         <h1 className="title">Welcome to the PeerQ</h1>
                         <div className="buttonholder">
-                            <button className="leftbutton" onClick={() => this.changeView('student')} >Student</button>
-                            {this.state.alert ? <input className="nameinputa" placeholder="Enter your name" onChange={(e) => this.handleInput(e.target.value)} value={this.props.name}/> : <input className="nameinput" placeholder="Enter your name" onChange={(e) => this.handleInput(e.target.value)} value={this.props.name}/>}
                             <button className="rightbutton" onClick={() => this.changeView('mentor')} >Mentor</button>
+                            {this.state.alert ? <input className="nameinputa" placeholder="Enter your name" onChange={(e) => this.handleInput(e.target.value)} value={this.props.name}/> : <input className="nameinput" placeholder="Enter your name" onChange={(e) => this.handleInput(e.target.value)} value={this.props.name}/>}
+                            <button className="leftbutton" onClick={() => this.changeView('student')} >Student</button>
                         </div>
                     </div>
                     

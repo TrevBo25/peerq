@@ -20,6 +20,7 @@ class StudentForm extends Component{
     }
 
     changeView(view){
+        socket.emit('leavestudent')
         this.props.updateView(view);
     }
 

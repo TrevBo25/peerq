@@ -53,10 +53,10 @@ export function updateName(name){
 
 export function getUserScore(name){
     const request = axios.get(`/api/getuserscore/${name}`)
-    .then(response => {
-        console.log(response);
-        return response.data
-    })
+                    .then(response => {
+                        console.log(response);
+                        return response.data
+                    })
     return {
         type: GET_USER_SCORE,
         payload: request

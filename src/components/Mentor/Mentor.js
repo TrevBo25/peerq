@@ -9,7 +9,7 @@ class Mentor extends Component{
         super(props)
         this.state = {
         }
-        this.runOnRender = this.runOnRender.bind(this)
+        this.goGoGo = this.goGoGo.bind(this)
         
     }
 
@@ -18,14 +18,15 @@ class Mentor extends Component{
         this.props.getScores();
         this.props.getUserScore(this.props.name);
 
-        socket.on('render', this.runOnRender);
+        socket.on('go', this.goGoGo);
     }
 
     changeView(view){
+        socket.emit('leavementor')
         this.props.updateView(view);
     }
 
-    runOnRender(){
+    goGoGo(){
         this.props.getQuestions();
         this.props.getScores();
         this.props.getUserScore(this.props.name);

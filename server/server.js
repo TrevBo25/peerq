@@ -33,26 +33,48 @@ server.listen(PORT, () => console.log("I'm listenin' brotha' on port ", PORT));
 io.on('connection', function(socket){
     console.log('a user connected')
 
+    socket.on('mentor', () => {
+        socket.join('mentor')
+        console.log('someone joined mentor')
+    })
+
+    socket.on('student', () => {
+        socket.join('student')
+        console.log('someone joined studen')
+    })
+
+    socket.on('leavementor', () => {
+        socket.leave('mentor')
+        console.log('some one left mentor')
+    })
+
+    socket.on('leavestudent', () => {
+        socket.leave('student')
+        console.log('some one left student')
+    })
+
     socket.on('question', function(test){
         console.log('successful test');
-        io.emit('render')
+        io.emit('go')
     })
 
     socket.on('helper', function(name){
         console.log('successful help');
         console.log(name);
-        io.emit('helped', name)
+        io.in('student').emit('helped', name)
     })
 
     socket.on('donezo', function(name){
         console.log('donneee');
         console.log(name);
-        io.emit('doneyo', name)
+        io.in('student').emit('doneyo', name)
     })
 
     socket.on('disconnect', function(socket) {
         console.log('a user disconnected'); 
     });
+
+    
     
 })
 

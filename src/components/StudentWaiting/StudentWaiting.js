@@ -25,12 +25,13 @@ class StudentWaiting extends Component{
         })		
     }		
 		
-    changeView(view){		
+    changeView(view){	
+        socket.emit('leavestudent')	
         this.props.updateView(view);		
     }		
 		
     changeView2(view, name){		
-        if(this.props.name === name){		
+        if(this.state.name === name){		
             this.props.changeView(view);		
         }		
     }		
